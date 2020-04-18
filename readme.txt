@@ -1,14 +1,22 @@
-Name: Sameer Moses Murala
-ID:1001556494
-Language:Java 
+The task in this part is to implement a system that:
+Can determine the posterior probability of different hypotheses, given priors for these hypotheses, and given a sequence of observations.
+Can determine the probability that the next observation will be of a specific type, priors for different hypotheses, and given a sequence of observations.
+As in the slides that we saw in class, there are five types of bags of candies. Each bag has an infinite amount of candies. We have one of those bags, and we are picking candies out of it. We don't know what type of bag we have, so we want to figure out the probability of each type based on the candies that we have picked.
+The five possible hypotheses for our bag are:
 
-Code Structuring:
-Task 1:Posterior Probabilities:
->First the observations are taken 
->For each of these observations the posterior probabilities are calculated using the previous input.
+h1 (prior: 10%): This type of bag contains 100% cherry candies.
+h2 (prior: 20%): This type of bag contains 75% cherry candies and 25% lime candies.
+h3 (prior: 40%): This type of bag contains 50% cherry candies and 50% lime candies.
+h4 (prior: 20%): This type of bag contains 25% cherry candies and 75% lime candies.
+h5 (prior: 10%): This type of bag contains 100% lime candies.
+Command Line arguments:
 
-Task 2:Bayesian Network:
->Intially all the arguments are taken.
->For each of these arguements the each of the variables are seperated for conditional probabilities.
->The probabilties for the events that are not given in the input arguments are calculated.
->Method compute probability calculates the final probabilities of the event given.
+The program takes a single command line argument, which is a string, for example CLLCCCLLL. This string represents a sequence of observations, i.e., a sequence of candies that we have already picked. Each character is C if we picked a cherry candy, and L if we picked a lime candy. Assuming that characters in the string are numbered starting with 1, the i-th character of the string corresponds to the i-th observation. The program should be invoked from the commandline as follows:
+compute_a_posteriori observations
+For example:
+compute_a_posteriori CLLCCLLLCCL
+We also allow the case of not having a command line argument at all, this represents the case where we have made no observations yet.
+
+Output:
+
+Your program should create a text file called "result.txt", that is formatted exactly as shown below. ??? is used where your program should print values that depend on its command line argument. Five decimal points should appear for any floating point number.
